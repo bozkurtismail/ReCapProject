@@ -3,6 +3,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete.InMemory
@@ -27,14 +28,11 @@ namespace DataAccess.Concrete.InMemory
             {
                 _cars.Add(car);
                 Console.WriteLine(car.CarId+" numaralı araç listeye eklendi");
-
             }
             else
             {
                 Console.WriteLine("Farklı CarId numarası kullanınız!!");
-            }
-            
-            
+            }            
         }
 
         public void Delete(Car car)
@@ -61,6 +59,11 @@ namespace DataAccess.Concrete.InMemory
         public Car GetById(int id)
         {
             return _cars.SingleOrDefault(c => c.CarId == id);
-        }        
+        }
+
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
