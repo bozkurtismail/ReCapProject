@@ -1,10 +1,10 @@
-﻿using Entities;
+﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace DataAccess.Abstract
+namespace Core.DataAccess
 {
     //generic constraint- generic kısıt
     //class:referans tip olabilir
@@ -13,10 +13,12 @@ namespace DataAccess.Abstract
     //NuGet
     public interface IEntityRepository<T> where T:class,IEntity,new()//<T> bir referans tip olmalı ve <T> ya IEntity olabilir ya IEntityden implemente olan class
     {
-        List<T> GetAll(Expression<Func<T,bool>> filter=null);//filtre=null filtrede verilmeyebilir demek
+        List<T> GetAll(Expression<Func<T, bool>> filter = null);//filtre=null filtrede verilmeyebilir demek
+        T Get(Expression<Func<T, bool>> filter);
         void Add(T entity);
         void Delete(T entity);
         void Update(T entity);
+        
         //Car GetById(int id); kullanımına gerek kalmadı
     }
 }
