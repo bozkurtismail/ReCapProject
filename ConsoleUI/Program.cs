@@ -13,12 +13,12 @@ namespace ConsoleUI
             int choice;
             bool loop = true;
 
-            CarManager      carManager      = new CarManager(new EfCarDal(), new UserValidationManager());
-            BrandManager    brandManager    = new BrandManager(new EfBrandDal());
-            ColorManager    colorManager    = new ColorManager(new EfColorDal());
+            CarManager      carManager      = new CarManager    (new EfCarDal(), new UserValidationManager());
+            BrandManager    brandManager    = new BrandManager  (new EfBrandDal());
+            ColorManager    colorManager    = new ColorManager  (new EfColorDal());
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
-            RentalManager   rentalManager   = new RentalManager(new EfRentalDal());
-            UserManager     userManager     = new UserManager(new EfUserDal());
+            RentalManager   rentalManager   = new RentalManager (new EfRentalDal());
+            UserManager     userManager     = new UserManager   (new EfUserDal());
             
 
             do
@@ -213,8 +213,9 @@ namespace ConsoleUI
             ListToCars(carManager);
             Console.WriteLine();
 
-            
 
+            Console.Write("Marka ID : ");
+            _brandId = Convert.ToInt32(Console.ReadLine());
             Console.Write("Renk ID : ");
             _colorId = Convert.ToInt32(Console.ReadLine());
             Console.Write("Günlük Fiyat : ");

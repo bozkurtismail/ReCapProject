@@ -33,8 +33,7 @@ namespace Business.Concrete
             {
                 Console.WriteLine(Messages.CarNameInvalid);
                 return new ErrorResult("Ürün Eklenemedi");
-            }
-            
+            }            
         }
 
         public IResult Delete(Car car)
